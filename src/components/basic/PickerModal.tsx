@@ -210,13 +210,17 @@ export function PickerModal<T extends string | number = string | number>({
           allLabel="All"
         />
       )}
+	  {/* 👇 1. WRAP THE FLASHLIST IN A BOX WITH flex={1} 👇 */}
+      <Box flex={1} minHeight={200}>
       <FlashList
         data={filteredItems}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         initialScrollIndex={initialScrollIndex}
         showsVerticalScrollIndicator={false}
+		estimatedItemSize={60} // 👇 2. ADD THIS MANDATORY PROP 👇
       />
+	  </Box>
     </Modal>
   );
 }
